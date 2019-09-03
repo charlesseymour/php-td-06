@@ -37,4 +37,18 @@ class ListingBasicCompleteTest extends TestCase
 		$this->assertEquals($this->listing->getEmail(), 'larafest@example.com');
 		$this->assertEquals($this->listing->getTwitter(),'larafest'); 
 	}
+	
+	public function testNewListingToArray()
+	{
+		$newListingArray = [
+			'id' => 1, 'title' => 'LaraFest 2019', 
+		    'website' => 'https://www.larafest.org',
+			'email' => 'larafest@example.com', 'twitter' => 'larafest',
+			'status' => 'basic', 'image' => 'https://www.flickr.com/1234'
+		];	
+		asort($newListingArray);
+		$listingToArray = $this->listing->toArray();
+		asort($listingToArray);
+		$this->assertEquals($newListingArray, $listingToArray);
+	}
 }
