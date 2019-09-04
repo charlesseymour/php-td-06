@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ .'/../classes/ListingPremium.php';
+
 class ListingFeatured extends ListingPremium
 {
     protected $status = 'featured';
