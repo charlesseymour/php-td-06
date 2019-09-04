@@ -22,4 +22,9 @@ class ListingPremiumTest extends TestCase
 	{
 		$this->assertEquals($this->listing->getStatus(), 'premium');
 	}
+	
+	public function testListingPremiumGetDescription()
+	{
+		$this->assertEquals($this->listing->getDescription(), 'A conference about PHP');
+	}
 }
