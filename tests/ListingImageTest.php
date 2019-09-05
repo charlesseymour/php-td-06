@@ -9,6 +9,8 @@ require __DIR__ .'/../classes/ListingBasic.php';
 
 use PHPUnit\Framework\TestCase;
 
+define('BASE_URL', '/');
+
 class ListingImageTest extends TestCase
 {
     public function testNoImage()
