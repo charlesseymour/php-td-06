@@ -1,9 +1,16 @@
 <?php
 
+require_once __DIR__ .'/ListingBasic.php';
+require_once __DIR__ .'/ListingFeatured.php';
+require_once __DIR__ .'/ListingInactive.php';
+require_once __DIR__ .'/ListingPremium.php';
+
 class Collection
 {
     private $statuses = ['featured', 'premium', 'basic', 'inactive'];
-    private $db;
+    
+	private $db;
+	
     // array of listing objects
     public $listings = [];
 
@@ -50,7 +57,9 @@ class Collection
         foreach ($statement->fetchAll(PDO::FETCH_ASSOC) as $data) {
             $this->addListing($data);
         }
-        return $statement->rowCount();
+		$statement->execute();
+		$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return count($rows);
     }
 
     /**
