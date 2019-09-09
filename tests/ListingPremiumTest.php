@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../classes/ListingPremium.php';
+//require_once __DIR__ .'/../classes/ListingPremium.php';
 
 use PHPUnit\Framework\TestCase;
 

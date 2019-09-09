@@ -11,6 +11,8 @@ if (isset($_GET['status'])) {
 }
 $directory->selectListings($filter);
 
+phpinfo();
+
 $title = "PHP Conferences";
 require 'inc/header.php';
 /*$test = new ListingInactive(['description' => 'My description with <b>good tags</b> and <a href="http://example.com">bad tags</a>']);

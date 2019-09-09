@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         cacheResult="true"
+         colors="true"
+         verbose="true">
+    <testsuites>
+        <testsuite name="unit">
+            <directory suffix="Test.php">tests/unit</directory>
+        </testsuite>
+
+        <testsuite name="end-to-end">
+            <directory suffix=".phpt">tests/end-to-end</directory>
+            <exclude>tests/end-to-end/_files</exclude>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">classes</directory>
+        </whitelist>
+    </filter>
+	<logging>
+		<log type="coverage-html" target="tests/log/report" lowUpperBound="35"
+		highLowerBound="70"/>
+		<log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+		<log type="testdox-html" target="tests/log/testdox.html"/>
+		<log type="testdox-text" target="tests/log/testdox.txt"/>
+	</logging>
+
+    <php>
+        <const name="PHPUNIT_TESTSUITE" value="true"/>
+    </php>
+</phpunit>
