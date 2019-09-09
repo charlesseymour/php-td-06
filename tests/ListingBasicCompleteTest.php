@@ -14,7 +14,8 @@ class ListingBasicCompleteTest extends TestCase
 			'id' => 1, 'title' => 'LaraFest 2019', 
 		    'website' => 'https://www.larafest.org',
 			'email' => 'larafest@example.com', 'twitter' => '@larafest',
-			'image' => 'https://www.flickr.com/1234'
+			'image' => 'https://www.flickr.com/1234',
+			'status' => 'basic'
 		];
 		$this->listing = new ListingBasic($data);
 	}
@@ -50,5 +51,21 @@ class ListingBasicCompleteTest extends TestCase
 		$listingToArray = $this->listing->toArray();
 		asort($listingToArray);
 		$this->assertEquals($newListingArray, $listingToArray);
+	}
+	
+	public function testSetStatus()
+	{
+		$this->listing->setStatus('premium');
+		$this->assertEquals($this->listing->getStatus(), 'premium');
+		$this->listing->setStatus('');
+		$this->assertEquals($this->listing->getStatus(), 'basic');
+	}
+	
+	public function testSetWebsite()
+	{
+		$this->listing->setWebsite('');
+		$this->assertEquals($this->listing->getWebsite(), null);
+		$this->listing->setWebsite('www.example.com');
+		$this->assertEquals($this->listing->getWebsite(), 'http://www.example.com');
 	}
 }

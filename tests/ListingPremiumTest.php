@@ -27,4 +27,10 @@ class ListingPremiumTest extends TestCase
 	{
 		$this->assertEquals($this->listing->getDescription(), 'A conference about PHP');
 	}
+	
+	public function testDisplayAllowedTags()
+	{
+		$this->assertEquals($this->listing->displayAllowedTags(), 
+			'&lt;p&gt;&lt;br&gt;&lt;b&gt;&lt;strong&gt;&lt;em&gt;&lt;u&gt;&lt;ol&gt;&lt;ul&gt;&lt;li&gt;');
+	}
 }
