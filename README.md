@@ -1,4 +1,4 @@
-# php-td-06
+# Treehouse PHP Techdegree Project 06 - Unit Testing in PHP
 
 Students were given a PHP app and asked to write tests using PHPunit and measure test coverage using Xdebug. 
 
